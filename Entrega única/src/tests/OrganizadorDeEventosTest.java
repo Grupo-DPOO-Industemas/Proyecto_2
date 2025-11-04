@@ -47,7 +47,7 @@ public class OrganizadorDeEventosTest {
     @Test
     void testCrearEventoConAprobacion() {
         organizador.setAprobado(true);
-        venue.aprobar(null); // aprobamos el venue (null solo para simplificar el test)
+        venue.aprobar(null); 
         Evento evento = organizador.crearEvento("Concierto", LocalDateTime.now(), "Música", venue);
         assertEquals("Concierto", evento.getNombre());
         assertEquals(1, organizador.getEventosCreados().size());

@@ -92,9 +92,9 @@ public class MarketplaceTest {
     
     @Test
     void testRechazarOfertaTiquete() {
-        int inicial = marketplace.getLogRegistros().size(); // definir inicial
+        int inicial = marketplace.getLogRegistros().size();
         marketplace.rechazarOfertaTiquete(tiqueteAndrea, 200);
-        assertEquals(inicial + 1, marketplace.getLogRegistros().size()); // ahora no debería salir azul
+        assertEquals(inicial + 1, marketplace.getLogRegistros().size());
         assertTrue(marketplace.getLogRegistros()
             .get(marketplace.getLogRegistros().size() - 1).getDetalle().contains("Rechazar la oferta"));
     }
