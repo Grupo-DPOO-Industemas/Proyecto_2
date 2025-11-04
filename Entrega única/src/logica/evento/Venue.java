@@ -119,6 +119,10 @@ public class Venue implements Serializable {
     public void setEventoActual(Evento eventoActual) {
         this.eventoActual = eventoActual;
     }
+    
+    public String getNombre() {
+        return ubicacion;
+    }
 
     @Override
     public String toString() {
