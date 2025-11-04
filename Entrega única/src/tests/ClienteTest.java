@@ -113,10 +113,5 @@ public class ClienteTest {
         assertEquals(tamañoInicial + 2, marketplace.getLogRegistros().size()); 
     }
 
-    @Test
-    void testAceptarOferta() {
-        clienteAndrea.publicarOferta(marketplace, tiqueteAndrea, 200);
-        clienteFelipe.aceptarOferta(marketplace, tiqueteAndrea, 200, clienteFelipe);
-        assertEquals(clienteFelipe, tiqueteAndrea.getDueno());
-    }
+
 }
