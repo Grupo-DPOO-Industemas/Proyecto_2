@@ -8,7 +8,7 @@ import logica.usuario.Cliente;
 public abstract class Tiquete implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    protected String identificador;
+    protected int identificador;
     protected double precioBase;
     protected double cargoPorcentual;
     protected double cuotaAdicionalEmision;
@@ -19,7 +19,7 @@ public abstract class Tiquete implements Serializable {
     protected String hora;
     protected String estado;
 
-    public Tiquete(String identificador, double precioBase, double cargoPorcentual,
+    public Tiquete(int identificador, double precioBase, double cargoPorcentual,
                    double cuotaAdicionalEmision, Localidad localidad, Evento evento,
                    String fecha, String hora, String estado) {
 
@@ -35,7 +35,7 @@ public abstract class Tiquete implements Serializable {
         this.dueno = null;
     }
 
-    public String getIdentificador() {
+    public int getIdentificador() {
         return identificador;
     }
 

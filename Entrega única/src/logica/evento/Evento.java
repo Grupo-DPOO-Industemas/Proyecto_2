@@ -132,9 +132,9 @@ public class Evento implements Serializable {
         }
     }
 
-    public Tiquete buscarTiquetePorId(String id) {
+    public Tiquete buscarTiquetePorId(int id) {
         for (Tiquete t : tiquetes) {
-            if (t.getIdentificador().equals(id)) {
+            if (t.getIdentificador() == id) {
                 return t;
             }
         }

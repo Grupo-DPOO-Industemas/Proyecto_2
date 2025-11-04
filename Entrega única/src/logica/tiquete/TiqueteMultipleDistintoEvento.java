@@ -7,7 +7,7 @@ import logica.evento.Localidad;
 public class TiqueteMultipleDistintoEvento extends TiqueteMultiple implements Serializable {
     private static final long serialVersionUID = 1L;
 
-	public TiqueteMultipleDistintoEvento(String identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento,
+	public TiqueteMultipleDistintoEvento(int identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento,
 			String fecha, String hora, String estado, int cantidadAccesos) {
 		super(identificador, precioBase, cargoPorcentual, cuotaAdicionalEmision, localidad, evento, fecha, hora, estado, cantidadAccesos);
 	}

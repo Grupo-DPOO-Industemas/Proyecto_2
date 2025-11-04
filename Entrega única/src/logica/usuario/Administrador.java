@@ -3,6 +3,7 @@ import java.io.Serializable;
 
 import logica.tiquete.Tiquete;
 import logica.evento.Venue;
+import logica.reventa.Marketplace;
 
 public class Administrador extends Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -58,5 +59,18 @@ public class Administrador extends Usuario implements Serializable {
                 "nombre='" + getNombreCompleto() + '\'' +
                 ", porcentajeGanancia=" + porcentajeGanancia + "%" +
                 '}';
+    }
+    
+    public void consultarLogRegistros(Marketplace marketplace) {
+    	System.out.println("Log de Registros del Marketplace:");
+    	for (var r : marketplace.getLogRegistros()) {
+    		System.out.println("ID: " + r.getId() + ", FechaHora: " + r.getFechaHora() + ", Precio: " + r.getPrecio() +
+					", Detalle: " + r.getDetalle() + ", Usuario: " + r.getUsuario().getNombreCompleto() +
+					", Tiquete ID: " + r.getTiqueteInvolucrado().getIdentificador());
+    	}
+    }
+    
+    public void eliminarContraOferta(Marketplace marketplace, int registroId) {
+    	
     }
 }

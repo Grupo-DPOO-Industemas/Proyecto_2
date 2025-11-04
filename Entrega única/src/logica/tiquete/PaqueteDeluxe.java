@@ -9,13 +9,13 @@ import logica.evento.Localidad;
 
 public class PaqueteDeluxe extends Tiquete implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String identificadorPaquete;
+	private int identificadorPaquete;
 	private HashMap<String, Tiquete> tiquetesIncluidos;
 	private double precioPaquete;
 	private ArrayList<String> beneficiosAdicionales;
 	
-	public PaqueteDeluxe(String identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision,
-			Localidad localidad, Evento evento, String fecha, String hora, String estado, String identificadorPaquete,
+	public PaqueteDeluxe(int identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision,
+			Localidad localidad, Evento evento, String fecha, String hora, String estado, int identificadorPaquete,
 			HashMap<String, Tiquete> tiquetesIncluidos, double precioPaquete, ArrayList<String> beneficiosAdicionales) {
 		super(identificador, precioBase, cargoPorcentual, cuotaAdicionalEmision, localidad, evento, fecha, hora,
 				estado);
@@ -25,11 +25,11 @@ public class PaqueteDeluxe extends Tiquete implements Serializable{
 		this.beneficiosAdicionales = beneficiosAdicionales;
 	}
 
-	public String getIdentificadorPaquete() {
+	public int getIdentificadorPaquete() {
 		return identificadorPaquete;
 	}
 
-	public void setIdentificadorPaquete(String identificadorPaquete) {
+	public void setIdentificadorPaquete(int identificadorPaquete) {
 		this.identificadorPaquete = identificadorPaquete;
 	}
 

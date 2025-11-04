@@ -9,7 +9,7 @@ public class TiqueteNumerado extends Tiquete implements Serializable {
 	
 	private int numeroAsiento;
 	
-	public TiqueteNumerado(String identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento, String fecha, String hora, String estado, int numeroAsiento) {
+	public TiqueteNumerado(int identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento, String fecha, String hora, String estado, int numeroAsiento) {
 		super(identificador, precioBase, cargoPorcentual, cuotaAdicionalEmision, localidad, evento, fecha, hora, estado);
 		this.numeroAsiento = numeroAsiento;
 	}

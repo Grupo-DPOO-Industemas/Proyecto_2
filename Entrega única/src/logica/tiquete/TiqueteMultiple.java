@@ -9,7 +9,7 @@ public abstract class TiqueteMultiple extends Tiquete implements Serializable {
 	
 	protected int cantidadAccesos;
 	
-	public TiqueteMultiple(String identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento, String fecha, String hora, String estado, int cantidadAccesos) {
+	public TiqueteMultiple(int identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento, String fecha, String hora, String estado, int cantidadAccesos) {
 		super(identificador, precioBase, cargoPorcentual, cuotaAdicionalEmision, localidad, evento, fecha, hora, estado);
 		this.cantidadAccesos = cantidadAccesos;
 	}

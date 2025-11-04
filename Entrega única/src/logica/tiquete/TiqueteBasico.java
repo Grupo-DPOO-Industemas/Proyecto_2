@@ -7,7 +7,7 @@ import logica.evento.Localidad;
 public class TiqueteBasico extends Tiquete implements Serializable {
     private static final long serialVersionUID = 1L;
 	
-	public TiqueteBasico(String identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento, String fecha, String hora, String estado) {
+	public TiqueteBasico(int identificador, double precioBase, double cargoPorcentual, double cuotaAdicionalEmision, Localidad localidad, Evento evento, String fecha, String hora, String estado) {
 		super(identificador, precioBase, cargoPorcentual, cuotaAdicionalEmision, localidad, evento, fecha, hora, estado);
 	}
 	
