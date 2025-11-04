@@ -16,6 +16,12 @@ public class TiqueteBasico extends Tiquete implements Serializable {
 	public double calcularPrecioFinal() {
 		return precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision;
 	}
+
+
+	@Override
+	public boolean isDeluxe() {
+		return false;
+	}
 	
 
 }

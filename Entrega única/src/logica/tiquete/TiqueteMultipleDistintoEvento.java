@@ -17,6 +17,11 @@ public class TiqueteMultipleDistintoEvento extends TiqueteMultiple implements Se
 		double total = cantidadAccesos * (precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision);
         return total * 1.10;
 	}
+
+	@Override
+	public boolean isDeluxe() {
+		return false;
+	}
 	
 
 }

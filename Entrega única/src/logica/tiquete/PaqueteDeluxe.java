@@ -62,5 +62,12 @@ public class PaqueteDeluxe extends Tiquete implements Serializable{
 		return precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision;
 	}
 	
+	@Override
+	public boolean isDeluxe() {
+	    return true; 
+	}
+	
+	
+	
 	
 }

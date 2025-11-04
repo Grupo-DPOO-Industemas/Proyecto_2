@@ -71,6 +71,20 @@ public class Administrador extends Usuario implements Serializable {
     }
     
     public void eliminarContraOferta(Marketplace marketplace, int registroId) {
-    	
+        if (marketplace == null)
+            throw new IllegalArgumentException("El marketplace no puede ser nulo.");
+
+        marketplace.eliminarContraOfertaPorId(registroId, this);
     }
+    
+    public void aprobarOrganizador(OrganizadorDeEventos organizador) {
+        if (organizador == null) {
+            throw new IllegalArgumentException("El organizador no puede ser nulo.");
+        }
+        if (organizador.isAprobado()) {
+            throw new IllegalStateException("El organizador ya está aprobado.");
+        }
+        organizador.setAprobado(true);
+        System.out.println("El organizador " + organizador.getNombreCompleto() + " ha sido aprobado.");
+    }       
 }

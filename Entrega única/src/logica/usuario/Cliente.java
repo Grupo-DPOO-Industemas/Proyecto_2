@@ -3,6 +3,8 @@ package logica.usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import logica.reventa.Marketplace;
 import logica.tiquete.Tiquete;
 
 public class Cliente extends UsuarioConSaldo implements Serializable {
@@ -89,4 +91,40 @@ public class Cliente extends UsuarioConSaldo implements Serializable {
                 ", tiquetesComprados=" + tiquetesComprados.size() +
                 '}';
     }
+    
+    public void publicarOferta(Marketplace marketplace, Tiquete tiquete, double precio) {
+        if (tiquete == null || marketplace == null) 
+            throw new IllegalArgumentException("Argumentos inválidos");
+        if (tiquete.isDeluxe()) 
+            throw new IllegalStateException("No se pueden revender tiquetes pertenecientes al paquete Deluxe.");
+        marketplace.agregarTiqueteEnVenta(tiquete, precio);
+        System.out.println("Oferta publicada para el tiquete " + tiquete.getIdentificador() + " a precio " + precio);
+    }
+
+    public void borrarOferta(Marketplace marketplace, Tiquete tiquete) {
+        if (tiquete == null || marketplace == null)
+            throw new IllegalArgumentException("Argumentos inválidos");
+        if (!marketplace.getTiquetesEnVenta().containsKey(tiquete.getIdentificador()))
+            throw new IllegalStateException("El tiquete no está en venta.");
+        marketplace.eliminarTiqueteDeVenta(tiquete);
+        System.out.println("Oferta eliminada para el tiquete " + tiquete.getIdentificador());
+    }
+
+    public void contraOfertar(Marketplace marketplace, Tiquete tiquete, double precioOfertado) {
+        if (tiquete == null || marketplace == null)
+            throw new IllegalArgumentException("Argumentos inválidos");
+        if (!marketplace.getTiquetesEnVenta().containsKey(tiquete.getIdentificador()))
+            throw new IllegalStateException("El tiquete no está en venta.");
+        marketplace.contraOfertaTiquete(tiquete, precioOfertado, this);
+        System.out.println("Contraoferta de " + precioOfertado + " realizada para el tiquete " + tiquete.getIdentificador());
+    }
+
+    public void contraOfertar(Marketplace marketplace, Tiquete tiquete, double precioOfertado, Cliente comprador) {
+        if (tiquete == null || marketplace == null || comprador == null)
+            throw new IllegalArgumentException("Argumentos inválidos");
+        marketplace.aceptarOfertaTiquete(tiquete, precioOfertado, comprador);
+        System.out.println("Oferta aceptada para el tiquete " + tiquete.getIdentificador());
+    }
+    
+    
 }

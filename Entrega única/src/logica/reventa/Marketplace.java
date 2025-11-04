@@ -96,4 +96,22 @@ public class Marketplace {
 		tiquete.getDueno().transferirTiquete(tiquete, cliente);
 		cliente.descontarSaldo(precio);
 	}
+	
+	public void eliminarContraOfertaPorId(int registroId, Administrador administrador) {
+	    
+		Registro registroAEliminar = null;
+	    for (Registro registro : logRegistros) {
+	        if (registro.getId() == registroId && registro.getDetalle().toLowerCase().contains("contraoferta")) {
+	            registroAEliminar = registro;
+	        }
+	    }
+	    logRegistros.remove(registroAEliminar);
+	    Registro registro = new Registro(logRegistros.size() + 1, 0, "El administrador eliminó la contraoferta #" + registroId, administrador, registroAEliminar.getTiqueteInvolucrado());
+	    logRegistros.add(registro);
+	}
+	
+	
+
+	
+	
 }

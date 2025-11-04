@@ -25,6 +25,11 @@ public class TiqueteNumerado extends Tiquete implements Serializable {
 	
 	public void setNumeroAsiento(int numeroAsiento) {
         this.numeroAsiento = numeroAsiento;
-    }	
+    }
+
+	@Override
+	public boolean isDeluxe() {
+		return false;
+	}	
 
 }

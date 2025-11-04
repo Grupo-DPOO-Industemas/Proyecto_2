@@ -16,12 +16,15 @@ public class OrganizadorDeEventos extends UsuarioConSaldo implements Serializabl
     private List<Evento> eventosCreados;
     private List<Venue> venuesSugeridos;
     private List<Oferta> ofertasCreadas;
+    private boolean aprobado;
+    
 
     public OrganizadorDeEventos(String nombreUsuario, String contrasena, String nombreCompleto, double saldoInicial) {
         super(nombreUsuario, contrasena, nombreCompleto, saldoInicial);
         this.eventosCreados = new ArrayList<>();
         this.venuesSugeridos = new ArrayList<>();
         this.ofertasCreadas = new ArrayList<>();
+        this.setAprobado(false);
     }
 
     public List<Evento> getEventosCreados() {
@@ -37,6 +40,9 @@ public class OrganizadorDeEventos extends UsuarioConSaldo implements Serializabl
     }
 
     public Evento crearEvento(String nombre, LocalDateTime fechaHora, String tipo, Venue venue) {
+    	if (!aprobado) {
+    	    throw new IllegalStateException("No puede crear eventos hasta ser aprobado por el administrador.");
+    	}
         if (venue == null || !venue.isAprobado()) {
             throw new IllegalArgumentException("El venue debe estar aprobado antes de asignar un evento.");
         }
@@ -91,4 +97,12 @@ public class OrganizadorDeEventos extends UsuarioConSaldo implements Serializabl
                 ", ofertasCreadas=" + ofertasCreadas.size() +
                 '}';
     }
+
+	public boolean isAprobado() {
+		return aprobado;
+	}
+
+	public void setAprobado(boolean aprobado) {
+		this.aprobado = aprobado;
+	}
 }

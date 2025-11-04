@@ -102,6 +102,7 @@ public abstract class Tiquete implements Serializable {
     }
 
     public abstract double calcularPrecioFinal();
+    public abstract boolean isDeluxe();
 
     @Override
     public String toString() {
@@ -112,4 +113,5 @@ public abstract class Tiquete implements Serializable {
                 ", estado='" + estado + '\'' +
                 '}';
     }
+
 }

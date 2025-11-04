@@ -18,4 +18,9 @@ public class TiqueteMultipleMismoEvento extends TiqueteMultiple implements Seria
 		return cantidadAccesos * (precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision);
 	}
 
+	@Override
+	public boolean isDeluxe() {
+		return false;
+	}
+
 }
